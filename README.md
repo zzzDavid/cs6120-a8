@@ -1,4 +1,5 @@
-# CS6120 Advanced Compiler A8: Loop Invariant Code Motion (LICM)
+# CS6120 Advanced Compiler A8
+## Loop Invariant Code Motion (LICM)
 
 
 ### Build the Pass
