@@ -121,6 +121,17 @@ def build_parser():
         default=5,
         help='Timeout used for the compiler and linker invocations'
     )
+    parser.add_argument(
+        '--run_mypass',
+        action='store_true',
+        help="Run my own optimization pass with clang"
+    )
+    parser.add_argument(
+        "--pass_lib",
+        type=str,
+        default="../llvm-pass-skeleton/build/skeleton/libSkeletonPass.so",
+        help="The path to my own compiled pass shared library .so"
+    )
 
     return parser
 
@@ -298,6 +309,10 @@ def populate_user_patterns(conf, args):
         conf['ld_input_pattern'] = args.ld_input_pattern
     if args.ld_output_pattern:
         conf['ld_output_pattern'] = args.ld_output_pattern
+    if args.run_mypass:
+        conf['run_mypass'] = True
+    if args.pass_lib:
+        conf['pass_lib'] = args.pass_lib
 
     return conf
 
