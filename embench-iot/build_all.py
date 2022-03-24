@@ -466,7 +466,7 @@ def compile_file(f_root, srcdir, bindir, suffix='.c'):
     arglist.extend(gp['cc_output_pattern'].format('{root}.o'.format(root=f_root)).split())
     
     # Add my pass
-    if gp['run_mypass']:
+    if 'run_mypass' in gp and gp['run_mypass']:
         arglist.extend(['-Xclang', '-load', '-Xclang', gp['pass_lib']])
     
     arglist.extend(gp['cc_input_pattern'].format(abs_src).split())
