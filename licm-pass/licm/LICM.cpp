@@ -2,6 +2,7 @@
 #include "llvm/IR/Function.h"
 #include "llvm/Support/raw_ostream.h"
 #include "llvm/IR/LegacyPassManager.h"
+#include "llvm/Transforms/Utils.h"
 #include "llvm/Transforms/IPO/PassManagerBuilder.h"
 using namespace llvm;
 
@@ -23,6 +24,7 @@ char SkeletonPass::ID = 0;
 // http://adriansampson.net/blog/clangpass.html
 static void registerSkeletonPass(const PassManagerBuilder &,
                          legacy::PassManagerBase &PM) {
+  PM.add(createPromoteMemoryToRegisterPass());
   PM.add(new SkeletonPass());
 }
 static RegisterStandardPasses

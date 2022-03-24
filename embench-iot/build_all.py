@@ -129,7 +129,7 @@ def build_parser():
     parser.add_argument(
         "--pass_lib",
         type=str,
-        default="/Users/zhangniansong/Developer/CS6120-assignments/cs6120-a8/llvm-pass-skeleton/build/skeleton/libSkeletonPass.so",
+        default="/Users/zhangniansong/Developer/CS6120-assignments/cs6120-a8/licm-pass/build/licm/libLICMPass.so",
         help="The path to my own compiled pass shared library .so"
     )
 
