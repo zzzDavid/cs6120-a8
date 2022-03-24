@@ -129,7 +129,7 @@ def build_parser():
     parser.add_argument(
         "--pass_lib",
         type=str,
-        default="../llvm-pass-skeleton/build/skeleton/libSkeletonPass.so",
+        default="/Users/zhangniansong/Developer/CS6120-assignments/cs6120-a8/llvm-pass-skeleton/build/skeleton/libSkeletonPass.so",
         help="The path to my own compiled pass shared library .so"
     )
 
@@ -510,7 +510,9 @@ def compile_file(f_root, srcdir, bindir, suffix='.c'):
             log.debug(arglist_to_str(arglist))
 
             log.debug(res.stdout.decode('utf-8'))
+            print(res.stdout.decode('utf-8'))
             log.debug(res.stderr.decode('utf-8'))
+            print(res.stderr.decode('utf-8'))
 
     return succeeded
 
