@@ -464,6 +464,11 @@ def compile_file(f_root, srcdir, bindir, suffix='.c'):
     arglist = [gp["cc"]]
     arglist.extend(gp['cflags'])
     arglist.extend(gp['cc_output_pattern'].format('{root}.o'.format(root=f_root)).split())
+    
+    # Add my pass
+    if gp['run_mypass']:
+        arglist.extend(['-Xclang', '-load', '-Xclang', gp['pass_lib']])
+    
     arglist.extend(gp['cc_input_pattern'].format(abs_src).split())
 
     # Run the compilation, but only if the source file is newer than the
