@@ -73,7 +73,7 @@ For most test cases, we observe that LICM consistently brings speedup ranging fr
 
 
 <p align="center">
-<img src="https://res.cloudinary.com/dxzx2bxch/image/upload/v1648187979/work_uoxjif.jpg" alt="alt_text" title="image_tooltip" style="zoom:30%;" />
+<img  width=40% src="https://res.cloudinary.com/dxzx2bxch/image/upload/v1648187979/work_uoxjif.jpg" alt="alt_text" title="image_tooltip" />
 </p>
 
 A few cases has a bit slow down, which could be caused by the change in instruction alignment.
