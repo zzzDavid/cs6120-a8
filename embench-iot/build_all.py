@@ -461,8 +461,12 @@ def compile_file(f_root, srcdir, bindir, suffix='.c'):
     abs_bin = os.path.join(bindir, '{root}.o'.format(root=f_root))
 
     # Construct the argument list
+    old_cflags = gp['cflags']
+    # replace -O2 with -O0
+    old_cflags = [f for f in old_cflags if not f.startswith('-O')]
+    old_cflags.insert(1, "-O0")
     arglist = [gp["cc"]]
-    arglist.extend(gp['cflags'])
+    arglist.extend(old_cflags)
     arglist.extend(gp['cc_output_pattern'].format('{root}.o'.format(root=f_root)).split())
     
     # Add my pass
